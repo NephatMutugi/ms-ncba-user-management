@@ -25,27 +25,21 @@ public class User {
     @Column("user_id")
     @JsonProperty("userId")
     private Long id;
-
     @NotEmpty(message = "Name is required")
     @Size(min = 2, max = 100, message = "Name should have 2 to 100 characters")
     @Column("name")
     private String name;
-
     @NotEmpty(message = "Email is required")
     @Email(message = "Email should be valid")
     @Column("email")
     private String email;
-
     @Column("msisdn")
     private String msisdn;
-
     @Column("document_type")
     private String documentType;
-
     @Column("document_number")
     @JsonProperty("documentNumber")
     private String documentNumber;
-
     @Column("deleted")
     private boolean deleted;
 

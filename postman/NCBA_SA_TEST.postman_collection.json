@@ -1,0 +1,775 @@
+{
+	"info": {
+		"_postman_id": "060e4450-0058-40d5-8ec6-797f260b0819",
+		"name": "NCBA_SA_TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7245361"
+	},
+	"item": [
+		{
+			"name": "CREATE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "requestRefId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nephat Muchiri\",\n    \"email\": \"nmuchiri@your-mail.com\",\n    \"msisdn\": \"25472222222222\",\n    \"documentType\": \"National Identification\",\n    \"documentNumber\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CREATE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "requestRefId",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nephat Muchiri\",\n    \"email\": \"nmuchiri@your-mail.com\",\n    \"msisdn\": \"25472222222222\",\n    \"documentType\": \"National Identification\",\n    \"documentNumber\": \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "408"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"header\": {\n        \"requestRefId\": \"9042594f-1564-4470-8bab-810df8ffac0e\",\n        \"responseCode\": 201,\n        \"responseMessage\": \"User created successfully\",\n        \"customerMessage\": \"User created successfully\",\n        \"timestamp\": \"2024-06-21T08:34:18.605609\"\n    },\n    \"body\": {\n        \"name\": \"Nephat Muchiri\",\n        \"email\": \"nmuchiri@your-mail.com\",\n        \"msisdn\": \"25472222222222\",\n        \"documentType\": \"National Identification\",\n        \"deleted\": false,\n        \"userId\": 6,\n        \"documentNumber\": \"1234567890\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GET ALL",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "requestRefId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"all"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET ALL",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "requestRefId",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"all"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"header\": {\n            \"requestRefId\": \"64d6ec9c-fddc-4383-87c0-7b7f6af674ae\",\n            \"responseCode\": 200,\n            \"responseMessage\": \"Success\",\n            \"customerMessage\": \"Success\",\n            \"timestamp\": \"2024-06-21T08:34:46.399420\"\n        },\n        \"body\": {\n            \"name\": \"John Doe\",\n            \"email\": \"john.doe2@example.com\",\n            \"msisdn\": \"1234567891\",\n            \"documentType\": \"Passport\",\n            \"deleted\": false,\n            \"userId\": 1,\n            \"documentNumber\": \"A12345679\"\n        }\n    },\n    {\n        \"header\": {\n            \"requestRefId\": \"64d6ec9c-fddc-4383-87c0-7b7f6af674ae\",\n            \"responseCode\": 200,\n            \"responseMessage\": \"Success\",\n            \"customerMessage\": \"Success\",\n            \"timestamp\": \"2024-06-21T08:34:46.402706\"\n        },\n        \"body\": {\n            \"name\": \"John Doe\",\n            \"email\": \"john.doe@example.com\",\n            \"msisdn\": \"1234567890\",\n            \"documentType\": \"Passport\",\n            \"deleted\": false,\n            \"userId\": 4,\n            \"documentNumber\": \"A12345678\"\n        }\n    },\n    {\n        \"header\": {\n            \"requestRefId\": \"64d6ec9c-fddc-4383-87c0-7b7f6af674ae\",\n            \"responseCode\": 200,\n            \"responseMessage\": \"Success\",\n            \"customerMessage\": \"Success\",\n            \"timestamp\": \"2024-06-21T08:34:46.402869\"\n        },\n        \"body\": {\n            \"name\": \"Nephat Muchiri\",\n            \"email\": \"nmuchiri@test-mail.com\",\n            \"msisdn\": \"254114649882\",\n            \"documentType\": \"National Identification\",\n            \"deleted\": false,\n            \"userId\": 5,\n            \"documentNumber\": \"112233445566\"\n        }\n    },\n    {\n        \"header\": {\n            \"requestRefId\": \"64d6ec9c-fddc-4383-87c0-7b7f6af674ae\",\n            \"responseCode\": 200,\n            \"responseMessage\": \"Success\",\n            \"customerMessage\": \"Success\",\n            \"timestamp\": \"2024-06-21T08:34:46.402990\"\n        },\n        \"body\": {\n            \"name\": \"Nephat Muchiri\",\n            \"email\": \"nmuchiri@your-mail.com\",\n            \"msisdn\": \"25472222222222\",\n            \"documentType\": \"National Identification\",\n            \"deleted\": false,\n            \"userId\": 6,\n            \"documentNumber\": \"1234567890\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GET DELETED USERS",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "requestRefId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/deleted",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"deleted"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET ALL DELETED",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "requestRefId",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/deleted",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"deleted"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"header\": {\n            \"requestRefId\": \"8044105c-d438-4945-873f-4dce2551b923\",\n            \"responseCode\": 200,\n            \"responseMessage\": \"Success\",\n            \"customerMessage\": \"Success\",\n            \"timestamp\": \"2024-06-21T08:36:09.995188\"\n        },\n        \"body\": {\n            \"name\": \"Nephat Muchiri\",\n            \"email\": \"nmuchiri@test-mail.com\",\n            \"msisdn\": \"254114649882\",\n            \"documentType\": \"National Identification\",\n            \"deleted\": true,\n            \"userId\": 5,\n            \"documentNumber\": \"112233445566\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "SEARCH BY USERID",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "requestRefId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SEARCH BY USERID",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "requestRefId",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "372"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"header\": {\n        \"requestRefId\": \"fc7e5fdc-bd06-4ff5-bf5f-ebe7f34d6dcb\",\n        \"responseCode\": 200,\n        \"responseMessage\": \"Success\",\n        \"customerMessage\": \"Success\",\n        \"timestamp\": \"2024-06-21T08:35:06.231685\"\n    },\n    \"body\": {\n        \"name\": \"Nephat Muchiri\",\n        \"email\": \"nmuchiri@test-mail.com\",\n        \"msisdn\": \"254114649882\",\n        \"documentType\": \"National Identification\",\n        \"deleted\": false,\n        \"userId\": 5,\n        \"documentNumber\": \"112233445566\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "SEARCH BY MSISDN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "requestRefId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"msisdn\": \"0114649882\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SEARCH BY MSISDN",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "requestRefId",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"msisdn\": \"0114649882\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "372"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"header\": {\n        \"requestRefId\": \"5a71d75b-4015-4d34-80b7-e32f622cf5a7\",\n        \"responseCode\": 200,\n        \"responseMessage\": \"Success\",\n        \"customerMessage\": \"Success\",\n        \"timestamp\": \"2024-06-21T08:35:14.688958\"\n    },\n    \"body\": {\n        \"name\": \"Nephat Muchiri\",\n        \"email\": \"nmuchiri@test-mail.com\",\n        \"msisdn\": \"254114649882\",\n        \"documentType\": \"National Identification\",\n        \"deleted\": false,\n        \"userId\": 5,\n        \"documentNumber\": \"112233445566\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "SEARCH BY Document No",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "requestRefId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"documentNumber\": \"112233445566\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SEARCH BY Document No",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "requestRefId",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"documentNumber\": \"112233445566\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "372"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"header\": {\n        \"requestRefId\": \"1bb7cdf2-06dd-455a-bdc0-b4d8190eba0f\",\n        \"responseCode\": 200,\n        \"responseMessage\": \"Success\",\n        \"customerMessage\": \"Success\",\n        \"timestamp\": \"2024-06-21T08:35:21.680626\"\n    },\n    \"body\": {\n        \"name\": \"Nephat Muchiri\",\n        \"email\": \"nmuchiri@test-mail.com\",\n        \"msisdn\": \"254114649882\",\n        \"documentType\": \"National Identification\",\n        \"deleted\": false,\n        \"userId\": 5,\n        \"documentNumber\": \"112233445566\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "UPDATE USER",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "requestRefId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nephat Muchiri\",\n    \"email\": \"nmuchiri@test-mail.com\",\n    \"msisdn\": \"254114649882\",\n    \"documentType\": \"National Identification\",\n    \"deleted\": false,\n    \"userId\": 5,\n    \"documentNumber\": \"112233445566\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/update?id=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UPDATE USER",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "requestRefId",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nephat Muchiri\",\n    \"email\": \"nmuchiri@test-mail.com\",\n    \"msisdn\": \"254114649882\",\n    \"documentType\": \"National Identification\",\n    \"deleted\": false,\n    \"userId\": 5,\n    \"documentNumber\": \"112233445566\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/update?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "408"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"header\": {\n        \"requestRefId\": \"a149e6d6-846c-413c-bd41-cda739b5ea3e\",\n        \"responseCode\": 200,\n        \"responseMessage\": \"User updated successfully\",\n        \"customerMessage\": \"User updated successfully\",\n        \"timestamp\": \"2024-06-21T08:35:29.815510\"\n    },\n    \"body\": {\n        \"name\": \"Nephat Muchiri\",\n        \"email\": \"nmuchiri@test-mail.com\",\n        \"msisdn\": \"254114649882\",\n        \"documentType\": \"National Identification\",\n        \"deleted\": false,\n        \"userId\": 5,\n        \"documentNumber\": \"112233445566\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE USER",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "requestRefId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/delete?id=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE USER",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "requestRefId",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/delete?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "196"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"header\": {\n        \"requestRefId\": null,\n        \"responseCode\": 200,\n        \"responseMessage\": \"User deleted successfully\",\n        \"customerMessage\": \"User deleted successfully\",\n        \"timestamp\": \"2024-06-21T08:35:37.090037\"\n    },\n    \"body\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "RESTORE USER",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "requestRefId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/restore?id=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"restore"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "RESTORE USER",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "requestRefId",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/restore?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"restore"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "410"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"header\": {\n        \"requestRefId\": \"00f8ad09-62e9-476c-b7f5-073c7a8f65f0\",\n        \"responseCode\": 200,\n        \"responseMessage\": \"User restored successfully\",\n        \"customerMessage\": \"User restored successfully\",\n        \"timestamp\": \"2024-06-21T08:36:52.513347\"\n    },\n    \"body\": {\n        \"name\": \"Nephat Muchiri\",\n        \"email\": \"nmuchiri@test-mail.com\",\n        \"msisdn\": \"254114649882\",\n        \"documentType\": \"National Identification\",\n        \"deleted\": false,\n        \"userId\": 5,\n        \"documentNumber\": \"112233445566\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
