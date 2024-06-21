@@ -33,18 +33,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Flux<WsResponse<User>> getAllUsers(Map<String, String> headers) {
+        // Retrieves all users who are not marked as deleted
         return userRepository.findByDeletedFalse()
                 .map(user -> createWsResponse(user, "Success", 200, headers.get("requestRefId")));
     }
 
     @Override
     public Flux<WsResponse<User>> getAllDeletedUsers(Map<String, String> headers) {
+        // Retrieves all users who are marked as deleted
         return userRepository.findByDeletedTrue()
                 .map(user -> createWsResponse(user, "Success", 200, headers.get("requestRefId")));
     }
 
     @Override
     public Mono<WsResponse<User>> getUserById(Long id, Map<String, String> headers) {
+        // Retrieves a user by ID, if not found returns a 404 response
         return userRepository.findById(id)
                 .map(user -> createWsResponse(user, "Success", 200, headers.get("requestRefId")))
                 .defaultIfEmpty(createWsResponse(null, "User not found", 404, headers.get("requestRefId")));
@@ -52,6 +55,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<WsResponse<User>> getUserByMSISDN(String msisdn, Map<String, String> headers) {
+        // Normalizes MSISDN and retrieves a user by MSISDN, if not found returns a 404 response
         msisdn = normalizeMSISDN(msisdn);
         return userRepository.findByMsisdn(msisdn)
                 .map(user -> createWsResponse(user, "Success", 200, headers.get("requestRefId")))
@@ -60,6 +64,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<WsResponse<User>> getUserByDocumentNumber(String documentNumber, Map<String, String> headers) {
+        // Retrieves a user by document number, if not found returns a 404 response
         return userRepository.findByDocumentNumber(documentNumber)
                 .map(user -> createWsResponse(user, "Success", 200, headers.get("requestRefId")))
                 .defaultIfEmpty(createWsResponse(null, "User not found", 404, headers.get("requestRefId")));
@@ -67,10 +72,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<WsResponse<User>> createUser(User user, Map<String, String> headers) {
+        // Normalizes MSISDN, attempts to save a new user, and handles potential errors
+
         String msisdn = user.getMsisdn();
         msisdn = normalizeMSISDN(msisdn);
         user.setMsisdn(msisdn);
-
         return userRepository.save(user)
                 .map(savedUser -> createWsResponse(savedUser, "User created successfully", 201, headers.get("requestRefId")))
                 .onErrorResume(DataIntegrityViolationException.class, e -> {
@@ -89,6 +95,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<WsResponse<User>> updateUser(Long id, User user, Map<String, String> headers) {
+        // Normalizes MSISDN, updates an existing user's details, and handles potential errors
+
         String msisdn = user.getMsisdn();
         msisdn = normalizeMSISDN(msisdn);
         user.setMsisdn(msisdn);
@@ -105,6 +113,13 @@ public class UserServiceImpl implements UserService {
                 .onErrorResume(e -> Mono.just(createWsResponse(null, "User update failed: " + e.getMessage(), 500, headers.get("requestRefId"))));
     }
 
+    /**
+     * Marks a user as deleted.
+     *
+     * @param id The ID of the user to be deleted.
+     * @param headers The HTTP headers containing additional request information.
+     * @return A Mono of WsResponse indicating whether the deletion was successful or not.
+     */
     @Override
     public Mono<WsResponse<Void>> deleteUser(Long id, Map<String, String> headers) {
         return userRepository.findByIdAndDeletedFalse(id)
@@ -119,6 +134,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<WsResponse<User>> restoreUser(Long id, Map<String, String> headers) {
+        // Restores a deleted user by setting the 'deleted' flag to false
+
         return userRepository.findById(id)
                 .flatMap(existingUser -> {
                     existingUser.setDeleted(false);
